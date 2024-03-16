@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.*;
 
 import com.example.demo.models.projectModel;
 import com.example.demo.services.projectService;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @RestController
 @RequestMapping("/projects")
@@ -47,4 +50,14 @@ public class projectController {
            return ResponseEntity.status(400).body(e.getMessage());
        }
     }
+
+    @GetMapping("/getByCreator")
+    public ResponseEntity<Object> getProjectBycreator(@RequestParam UUID id) {
+        try{
+            return ResponseEntity.status(200).body(projectServiceInstance.getProjectBycreator(id));
+        }catch(Exception e){
+            return ResponseEntity.status(400).body(e.getMessage());
+        }
+    }
+    
 }

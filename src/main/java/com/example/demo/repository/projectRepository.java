@@ -11,6 +11,7 @@ import java.util.UUID;
 
 public interface projectRepository extends JpaRepository<projectModel, UUID> {
      List<projectModel> findByid(UUID projectId);
+     List<projectModel> findByCreator_Id(UUID creatorId);
      
 
 }

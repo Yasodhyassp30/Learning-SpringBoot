@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import com.example.demo.repository.projectRepository;
 import com.example.demo.models.projectModel;
 
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -24,5 +25,8 @@ public class projectService {
 
     public void deleteProject(UUID id) {
         projectRepository.deleteById(id);
+    }
+    public List<projectModel> getProjectBycreator(UUID id) {
+        return projectRepository.findByCreator_Id(id);
     }
 }
