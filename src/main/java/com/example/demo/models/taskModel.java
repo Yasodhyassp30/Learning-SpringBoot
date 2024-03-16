@@ -2,6 +2,7 @@ package com.example.demo.models;
 
 import java.util.UUID;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ForeignKey;
 import jakarta.persistence.GeneratedValue;
@@ -18,9 +19,8 @@ public class taskModel {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
-    @ManyToOne
-    @JoinColumn(name = "projectId", referencedColumnName = "id")
-    private projectModel project;
+    @Column(name = "projectid")
+    private UUID project;
     
     private UUID assigned;
     private String description;
@@ -37,11 +37,11 @@ public class taskModel {
         this.id = id;
     }
 
-    public projectModel getProject() {
+    public UUID getProject() {
         return project;
     }
 
-    public void setProject(projectModel project) {
+    public void setProject(UUID project) {
         this.project = project;
     }
 

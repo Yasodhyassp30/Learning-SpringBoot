@@ -14,6 +14,7 @@ public class DemoApplication {
         return new BCryptPasswordEncoder();
     }
     public static void main(String[] args) {
+        System.out.println("Hello Freeze");
         SpringApplication.run(DemoApplication.class, args);
     }
 

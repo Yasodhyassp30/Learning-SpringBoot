@@ -27,6 +27,6 @@ public class projectService {
         projectRepository.deleteById(id);
     }
     public List<projectModel> getProjectBycreator(UUID id) {
-        return projectRepository.findByCreator_Id(id);
+        return projectRepository.findBycreatorUuid(id);
     }
 }

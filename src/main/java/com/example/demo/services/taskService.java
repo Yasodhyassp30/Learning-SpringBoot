@@ -1,5 +1,4 @@
 package com.example.demo.services;
-import com.example.demo.models.projectModel;
 import com.example.demo.models.taskModel;
 import com.example.demo.repository.taskRepository;
 
@@ -7,7 +6,6 @@ import java.util.List;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.config.Task;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -52,7 +50,7 @@ public class taskService {
     }
 
     public List<taskModel> getTasksByProject(UUID project) {
-        return taskRepository.findByProjectId(project);
+        return taskRepository.findByProject(project);
     }
     
     

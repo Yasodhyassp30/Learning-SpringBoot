@@ -8,28 +8,47 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Column;
+import jakarta.persistence.Convert;
+
+import java.util.List;
 import java.util.UUID;
+
+import com.example.demo.helpers.StringListConverter;
+import com.google.gson.Gson;
+
+
+
 
 @Entity
 @Table(name = "projects")
+
 public class projectModel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
-    @ManyToOne
-    @JoinColumn(name = "uId", referencedColumnName = "id")
-    private userModel creator;
-
+    @Column(name = "uid")
+    private UUID creatorUuid;
+    
     private String name;
     private String description;
     private String status;
-    @Column(columnDefinition = "jsonb")
-    private String members;
+
+
     private String importance;
     private String deadline;
 
 
+    public projectModel(String name, String description, String status, String importance, String deadline, UUID creator) {
+    
+        this.name = name;
+        this.description = description;
+        this.status = status;
+        this.importance = importance;
+        this.deadline = deadline;
+        this.creatorUuid = creator;
+    }
+    
     public UUID getId() {
         return id;
     }
@@ -62,14 +81,6 @@ public class projectModel {
         this.status = status;
     }
 
-    public String getMembers() {
-        return members;
-    }
-
-    public void setMembers(String members) {
-        this.members = members;
-    }
-
     public String getImportance() {
         return importance;
     }
@@ -85,4 +96,7 @@ public class projectModel {
     public void setDeadline(String deadline) {
         this.deadline = deadline;
     }
+
+
+    
 }
