@@ -6,6 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.example.demo.models.taskModel;
 
-public interface taskRepository extends JpaRepository<taskModel, UUID>{
-
+public interface taskRepository extends JpaRepository<taskModel, UUID> {
+    List<taskModel> findByProjectId(UUID projectId);
 }

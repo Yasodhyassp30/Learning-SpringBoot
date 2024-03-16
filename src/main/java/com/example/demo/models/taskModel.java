@@ -19,7 +19,7 @@ public class taskModel {
     private UUID id;
 
     @ManyToOne
-    @JoinColumn(name = "project_id", referencedColumnName = "id", foreignKey = @ForeignKey(name = "fk_task_project"))
+    @JoinColumn(name = "projectId", referencedColumnName = "id")
     private projectModel project;
     
     private UUID assigned;
